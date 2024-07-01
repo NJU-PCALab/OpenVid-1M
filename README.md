@@ -51,9 +51,7 @@ dataset
 |------------|--------|-------------|------------|-----------------------------------------------------------------------------------------------|
 | STDiT-16×1024×1024 | OpenVidHQ | 16k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
 | STDiT-16×512×512 | OpenVid-1M | 20k | 32×8 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
-| STDiT-16×256×256 | OpenVid-1M | 72k | 8×32 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
 | MVDiT-16×512×512 | OpenVid-1M | 20k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
-| MVDiT-16×256×256 | OpenVid-1M | 72k | 8×32 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
 
 Training orders: 16x256x256 $\rightarrow$ 16×512×512 $\rightarrow$ 16×1024×1024.
 
@@ -63,21 +61,25 @@ Our model's weight is partially initialized from [PixArt-α](https://github.com/
 ```bash
 # MVDiT 16x512x512
 torchrun --standalone --nproc_per_node 1 scripts/inference.py configs/mvdit/inference/16x512x512.py --ckpt-path MVDiT-16x512x512.pth
-
 # STDiT 16x512x512
 torchrun --standalone --nproc_per_node 1 scripts/inference.py configs/stdit/inference/16x512x512.py --ckpt-path STDiT-16x512x512.pth
-
 # STDiT 16x1024x1024
 torchrun --standalone --nproc_per_node 1 scripts/inference.py configs/stdit/inference/16x1024x1024.py --ckpt-path STDiT-16x1024x1024.pth 
 ```
 
 ## Training
 ```bash
-# MVDiT 16x512x512
+# MVDiT, 16x256x256, 72k Steps
+torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/mvdit/train/16x256x256.py
+# MVDiT, 16x512x512, 20k Steps
 torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/mvdit/train/16x512x512.py
 
-# STDiT 16x512x512
+# STDiT, 16x256x256, 72k Steps
+torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/stdit/train/16x256x256.py
+# STDiT, 16x512x512, 20k Steps
 torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/stdit/train/16x512x512.py
+# STDiT, 16x1024x1024, 16k Steps
+torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/stdit/train/16x1024x1024.py
 ```
 
 ## References
