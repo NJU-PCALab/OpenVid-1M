@@ -48,13 +48,6 @@ def main():
     assert cfg.dtype in ["fp16", "bf16"], f"Unknown mixed precision {cfg.dtype}"
 
     # 2.1. colossalai init distributed training
-    # for debug
-    # os.environ['MASTER_ADDR'] = 'localhost'
-    # os.environ['MASTER_PORT'] = '12689'
-    # os.environ['RANK'] = '0'
-    # os.environ['WORLD_SIZE'] = '1'
-    # os.environ['LOCAL_RANK'] = '0'
-
     colossalai.launch_from_torch({})
     coordinator = DistCoordinator()
     device = get_current_device()
@@ -100,7 +93,6 @@ def main():
     # ======================================================
     dataset = DatasetFromCSV(
         cfg.data_path,
-        cfg.extra_data_path,
         # TODO: change transforms
         transform=(
             get_transforms_video(cfg.image_size[0])
@@ -110,15 +102,8 @@ def main():
         num_frames=cfg.num_frames,
         frame_interval=cfg.frame_interval,
         root=cfg.root,
-        extra_root=cfg.extra_root,
     )
 
-    # TODO: use plugin's prepare dataloader
-    # a batch contains:
-    # {
-    #      "video": torch.Tensor,  # [B, C, T, H, W],
-    #      "text": List[str],
-    # }
     dataloader = prepare_dataloader(
         dataset,
         batch_size=cfg.batch_size,
@@ -235,8 +220,6 @@ def main():
                 t = torch.randint(0, scheduler.num_timesteps, (x.shape[0],), device=device)
                 loss_dict = scheduler.training_losses(model, x, t, model_args)
 
-                #ipdb.set_trace()
-
                 # Backward & update
                 loss = loss_dict["loss"].mean()
                 booster.backward(loss=loss, optimizer=optimizer)
@@ -298,5 +281,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-#  torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/opensora/train/16x256x256.py

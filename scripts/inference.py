@@ -1,5 +1,4 @@
 import os
-#os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 import torch
 import colossalai
 import torch.distributed as dist
@@ -13,11 +12,9 @@ from openvid.acceleration.parallel_states import set_sequence_parallel_group
 from colossalai.cluster import DistCoordinator
 
 
-def load_prompts(prompt_path, start_idx, end_idx, idxs):
+def load_prompts(prompt_path, start_idx, end_idx):
     with open(prompt_path, "r") as f:
         prompts = [line.strip() for line in f.readlines()]
-    if idxs is not None:
-        return [prompts[idx_] for idx_ in idxs]
     if start_idx is not None and end_idx is not None:
         return prompts[start_idx:end_idx]
     return prompts
@@ -29,23 +26,6 @@ def main():
     # ======================================================
     cfg = parse_configs(training=False)
     print(cfg)
-
-    # init distributed
-    # # for debug
-    # os.environ['MASTER_ADDR'] = 'localhost'
-    # os.environ['MASTER_PORT'] = cfg.port
-    # os.environ['RANK'] = '0'
-    # os.environ['WORLD_SIZE'] = '1'
-    # os.environ['LOCAL_RANK'] = '0'
-    # colossalai.launch_from_torch({})
-    # coordinator = DistCoordinator()
-    # if coordinator.world_size > 1:
-    #     set_sequence_parallel_group(dist.group.WORLD) 
-    #     enable_sequence_parallelism = True
-    # else:
-    #     enable_sequence_parallelism = False
-
-    # single gpu
     enable_sequence_parallelism = False
 
     # ======================================================
@@ -57,7 +37,7 @@ def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     dtype = to_torch_dtype(cfg.dtype)
     set_random_seed(seed=cfg.seed)
-    prompts = load_prompts(cfg.prompt_path, cfg.start_idx, cfg.end_idx, cfg.idxs)
+    prompts = load_prompts(cfg.prompt_path, cfg.start_idx, cfg.end_idx)
 
     # ======================================================
     # 3. build model & load weights
@@ -124,17 +104,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# debug: 
-# source /mnt/bn/yh-volume0/code/debug/env/opensora/bin/activate
-# cd /mnt/bn/yh-volume0/code/debug/code/OpenSora
-# change MASTER_PORT
-# CUDA_VISIBLE_DEVICES=0 python scripts/inference.py --start_idx 0 --end_idx 100
-
-
-# sample fvd for different step:
-# source /mnt/bn/yh-volume0/code/debug/env/opensora/bin/activate
-# cd /mnt/bn/yh-volume0/code/debug/code/OpenSora
-# CUDA_VISIBLE_DEVICES=0 python scripts/inference.py --ckpt-path /mnt/bn/yh-volume0/exp/VDiT/OpenSora/hight256_pixart512_3interval_1000epoch_celebv_bs4_lr2e-5_8gpu_baseline_densemm/epoch22-global_step25000/ema.pt --save-dir ./outputs/samples_step/ --port 12123
-
-
