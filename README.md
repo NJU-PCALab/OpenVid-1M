@@ -6,7 +6,7 @@
 ### <div align="center"> OpenVid-1M: A Large-Scale High-Quality Dataset for Text-to-video Generation <div> 
 <div align="center">
   <a href="https://nju-pcalab.github.io/projects/openvid/"><img src="https://img.shields.io/static/v1?label=OpenVid-1M&message=Project&color=purple"></a> &ensp;
-  <a href="https://nju-pcalab.github.io/projects/openvid/"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv:Alpha&color=red&logo=arxiv"></a> &ensp;
+  <a href="https://nju-pcalab.github.io/projects/openvid/"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv&color=red&logo=arxiv"></a> &ensp;
   <a href="https://huggingface.co/datasets/nkp37/OpenVid-1M"><img src="https://img.shields.io/static/v1?label=Dataset&message=HuggingFace&color=yellow"></a> &ensp;
 </div>
 
@@ -51,7 +51,9 @@ dataset
 |------------|--------|-------------|------------|-----------------------------------------------------------------------------------------------|
 | STDiT-16×1024×1024 | OpenVidHQ | 16k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
 | STDiT-16×512×512 | OpenVid-1M | 20k | 32×8 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
+| STDiT-16×256×256 | OpenVid-1M | 72k | 8×32 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
 | MVDiT-16×512×512 | OpenVid-1M | 20k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
+| MVDiT-16×256×256 | OpenVid-1M | 72k | 8×32 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
 
 Training orders: 16x256x256 $\rightarrow$ 16×512×512 $\rightarrow$ 16×1024×1024.
 
