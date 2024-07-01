@@ -1,12 +1,19 @@
-## OpenVid
-Text-to-video (T2V) generation has recently garnered significant attention, largely due to the advanced multi-modality model, Sora. However, current T2V generation in research community still faces two major challenges: 1) The absence of a precise, high-quality open-source dataset. Previous popular video datasets, such as WebVid-10M and Panda-70M, are either of low quality or too large for most research institutions. Collecting precise, high-quality text-video pairs is both challenging and essential for T2V generation. 2) Inadequate utilization of textual information. Recent T2V methods focus on vision transformers, employing a simple cross-attention module for video generation, which falls short of thoroughly extracting semantic information from text prompt.
-To address these issues, we introduce OpenVid-1M, a high-quality dataset with expressive captions. This open-scenario dataset comprises over 1 million text-video pairs, facilitating T2V generation research. Additionally, we curate 433K 1080p videos from OpenVid-1M to create OpenVidHD-0.4M, advancing high-definition video generation. Furthermore, we propose a novel Multi-modal Video Diffusion Transformer (MVDiT), capable of extracting structural information from visual tokens and semantic information from text tokens. Extensive experiments and ablation studies demonstrate the superiority of OpenVid-1M over previous datasets and the effectiveness of our MVDiT.
+<p align="center">
+  <img src="assets/logo.jpg"  height=120>
+</p>
 
+
+### <div align="center"> OpenVid-1M: A Large-Scale High-Quality Dataset for Text-to-video Generation <div> 
 <div align="center">
   <a href="https://nju-pcalab.github.io/projects/openvid/"><img src="https://img.shields.io/static/v1?label=OpenVid-1M&message=Project&color=purple"></a> &ensp;
   <a href="https://nju-pcalab.github.io/projects/openvid/"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv:Alpha&color=red&logo=arxiv"></a> &ensp;
   <a href="https://huggingface.co/datasets/nkp37/OpenVid-1M"><img src="https://img.shields.io/static/v1?label=Dataset&message=HuggingFace&color=yellow"></a> &ensp;
 </div>
+
+
+## OpenVid
+Text-to-video (T2V) generation has recently garnered significant attention, largely due to the advanced multi-modality model, Sora. However, current T2V generation in research community still faces two major challenges: 1) The absence of a precise, high-quality open-source dataset. Previous popular video datasets, such as WebVid-10M and Panda-70M, are either of low quality or too large for most research institutions. Collecting precise, high-quality text-video pairs is both challenging and essential for T2V generation. 2) Inadequate utilization of textual information. Recent T2V methods focus on vision transformers, employing a simple cross-attention module for video generation, which falls short of thoroughly extracting semantic information from text prompt.
+To address these issues, we introduce OpenVid-1M, a high-quality dataset with expressive captions. This open-scenario dataset comprises over 1 million text-video pairs, facilitating T2V generation research. Additionally, we curate 433K 1080p videos from OpenVid-1M to create OpenVidHD-0.4M, advancing high-definition video generation. Furthermore, we propose a novel Multi-modal Video Diffusion Transformer (MVDiT), capable of extracting structural information from visual tokens and semantic information from text tokens. Extensive experiments and ablation studies demonstrate the superiority of OpenVid-1M over previous datasets and the effectiveness of our MVDiT.
 
 
 ## Environment
