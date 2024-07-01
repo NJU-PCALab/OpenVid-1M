@@ -196,7 +196,6 @@ class MVDiT(nn.Module):
         enable_flashattn=False,
         enable_layernorm_kernel=False,
         enable_sequence_parallelism=False,
-        qk_norm=False,
     ):
         super().__init__()
         self.pred_sigma = pred_sigma
@@ -249,7 +248,6 @@ class MVDiT(nn.Module):
                     enable_sequence_parallelism=enable_sequence_parallelism,
                     d_t=self.num_temporal,
                     d_s=self.num_spatial,
-                    qk_norm=qk_norm,
                 )
                 for i in range(self.depth)
             ]
