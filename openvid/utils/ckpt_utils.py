@@ -19,29 +19,15 @@ import ipdb
 
 
 pretrained_models = {
-    "DiT-XL-2-512x512.pt": "https://dl.fbaipublicfiles.com/DiT/models/DiT-XL-2-512x512.pt",
-    "DiT-XL-2-256x256.pt": "https://dl.fbaipublicfiles.com/DiT/models/DiT-XL-2-256x256.pt",
-    "Latte-XL-2-256x256-ucf101.pt": "https://huggingface.co/maxin-cn/Latte/resolve/main/ucf101.pt",
     "PixArt-XL-2-256x256.pth": "https://huggingface.co/PixArt-alpha/PixArt-alpha/resolve/main/PixArt-XL-2-256x256.pth",
     "PixArt-XL-2-SAM-256x256.pth": "https://huggingface.co/PixArt-alpha/PixArt-alpha/resolve/main/PixArt-XL-2-SAM-256x256.pth",
     "PixArt-XL-2-512x512.pth": "https://huggingface.co/PixArt-alpha/PixArt-alpha/resolve/main/PixArt-XL-2-512x512.pth",
     "PixArt-XL-2-1024-MS.pth": "https://huggingface.co/PixArt-alpha/PixArt-alpha/resolve/main/PixArt-XL-2-1024-MS.pth",
-    "OpenSora-v1-16x256x256.pth": "https://huggingface.co/hpcai-tech/Open-Sora/resolve/main/OpenSora-v1-16x256x256.pth",
-    "OpenSora-v1-HQ-16x256x256.pth": "https://huggingface.co/hpcai-tech/Open-Sora/resolve/main/OpenSora-v1-HQ-16x256x256.pth",
-    "OpenSora-v1-HQ-16x512x512.pth": "https://huggingface.co/hpcai-tech/Open-Sora/resolve/main/OpenSora-v1-HQ-16x512x512.pth",
 }
 
 
 def reparameter(ckpt, name=None):
-    if "DiT" in name:
-        ckpt["x_embedder.proj.weight"] = ckpt["x_embedder.proj.weight"].unsqueeze(2)
-        del ckpt["pos_embed"]
-    elif "Latte" in name:
-        ckpt = ckpt["ema"]
-        ckpt["x_embedder.proj.weight"] = ckpt["x_embedder.proj.weight"].unsqueeze(2)
-        del ckpt["pos_embed"]
-        del ckpt["temp_embed"]
-    elif "PixArt" in name:
+    if "PixArt" in name:
         ckpt = ckpt["state_dict"]
         ckpt["x_embedder.proj.weight"] = ckpt["x_embedder.proj.weight"].unsqueeze(2)
         del ckpt["pos_embed"]
@@ -56,7 +42,7 @@ def find_model(model_name):
         model = download_model(model_name)
         model = reparameter(model, model_name)
         return model
-    else:  # Load a custom DiT checkpoint:
+    else:
         assert os.path.isfile(model_name), f"Could not find DiT checkpoint at {model_name}"
         checkpoint = torch.load(model_name, map_location=lambda storage, loc: storage)
         print(f"Loading {model_name}")
@@ -91,7 +77,6 @@ def download_model(model_name):
 
 def load_from_sharded_state_dict(model, ckpt_path):
     ckpt_io = GeneralCheckpointIO()
-    #ipdb.set_trace()
     ckpt_io.load_model(model, os.path.join(ckpt_path, "model"))
 
 def model_sharding(model: torch.nn.Module):

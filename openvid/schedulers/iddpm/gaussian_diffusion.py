@@ -760,14 +760,6 @@ class GaussianDiffusion:
                 terms["loss"] = terms["mse"] + terms["vb"]
             else:
                 terms["loss"] = terms["mse"]
-            if self.rbl:
-                T = x_start.shape[2]  # B 4 T H W
-                frame_index_latter = torch.arange(1, T)
-                frame_index_former = torch.arange(T-1)
-                relation_loss = mean_flat(((x_start[:, :, frame_index_latter]-x_start[:, :, frame_index_former]) - (terms["pred_xstart"][:, :, frame_index_latter] - terms["pred_xstart"][:, :, frame_index_former]))** 2)
-                terms["rbl"] = relation_loss  # relation-based latent loss
-                terms["loss"] += terms["rbl"]
-                #ipdb.set_trace()
         else:
             raise NotImplementedError(self.loss_type)
 
