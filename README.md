@@ -55,11 +55,11 @@ Our model's weight is partially initialized from [PixArt-α](https://github.com/
 
 ## Inference
 ```bash
-# MVDiT 16x512x512
+# MVDiT, 16x512x512
 torchrun --standalone --nproc_per_node 1 scripts/inference.py configs/mvdit/inference/16x512x512.py --ckpt-path MVDiT-16x512x512.pth
-# STDiT 16x512x512
+# STDiT, 16x512x512
 torchrun --standalone --nproc_per_node 1 scripts/inference.py configs/stdit/inference/16x512x512.py --ckpt-path STDiT-16x512x512.pth
-# STDiT 16x1024x1024
+# STDiT, 16x1024x1024
 torchrun --standalone --nproc_per_node 1 scripts/inference.py configs/stdit/inference/16x1024x1024.py --ckpt-path STDiT-16x1024x1024.pth 
 ```
 
