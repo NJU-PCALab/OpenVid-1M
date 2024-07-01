@@ -47,13 +47,11 @@ dataset
 ```
 
 ### Model Weight
-| Model | Data | Steps | Batch Size | URL                                                                                           |
+| Model | Data | Pretrained Weight | Steps | Batch Size | URL                                                                                           |
 |------------|--------|-------------|------------|-----------------------------------------------------------------------------------------------|
-| STDiT-16×1024×1024 | OpenVidHQ | 16k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
-| STDiT-16×512×512 | OpenVid-1M | 20k | 32×8 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
-| MVDiT-16×512×512 | OpenVid-1M | 20k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
-
-Training orders: 16x256x256 $\rightarrow$ 16×512×512 $\rightarrow$ 16×1024×1024.
+| STDiT-16×1024×1024 | OpenVidHQ | STDiT-16×512×512 | 16k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
+| STDiT-16×512×512 | OpenVid-1M | STDiT-16×256×256 | 20k | 32×8 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
+| MVDiT-16×512×512 | OpenVid-1M | MVDiT-16×256×256 | 20k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M) |
 
 Our model's weight is partially initialized from [PixArt-α](https://github.com/PixArt-alpha/PixArt-alpha).
 
@@ -80,6 +78,8 @@ torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/stdit/train/16x2
 torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/stdit/train/16x512x512.py
 # STDiT, 16x1024x1024, 16k Steps
 torchrun --nnodes=1 --nproc_per_node=1 scripts/train.py configs/stdit/train/16x1024x1024.py
+
+Training orders: 16x256x256 $\rightarrow$ 16×512×512 $\rightarrow$ 16×1024×1024.
 ```
 
 ## References
