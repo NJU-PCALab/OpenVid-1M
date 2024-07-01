@@ -30,7 +30,7 @@ from openvid.utils.ckpt_utils import load_checkpoint
 import ipdb
 
 
-class STDiTBlock(nn.Module):
+class MVDiTBlock(nn.Module):
     def __init__(
         self,
         hidden_size,
@@ -239,7 +239,7 @@ class MVDiT(nn.Module):
         drop_path = [x.item() for x in torch.linspace(0, drop_path, depth)]
         self.blocks = nn.ModuleList(
             [
-                STDiTBlock(
+                MVDiTBlock(
                     self.hidden_size,
                     self.num_heads,
                     mlp_ratio=self.mlp_ratio,
@@ -278,7 +278,7 @@ class MVDiT(nn.Module):
 
     def forward(self, x, timestep, y, mask=None):
         """
-        Forward pass of STDiT.
+        Forward pass of MVDiT.
         Args:
             x (torch.Tensor): latent representation of video; of shape [B, C, T, H, W]
             timestep (torch.Tensor): diffusion time steps; of shape [B]
