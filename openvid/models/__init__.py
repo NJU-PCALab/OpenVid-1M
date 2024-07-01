@@ -1,6 +1,4 @@
-from .dit import *
-from .latte import *
-from .pixart import *
+from .mvdit import *
 from .stdit import *
 from .text_encoder import *
 from .vae import *
