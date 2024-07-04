@@ -29,7 +29,7 @@ pip install -U xformers --index-url https://download.pytorch.org/whl/cu121
 
 ### Dataset
 1. Download [OpenVid-1M](https://huggingface.co/datasets/nkp37/OpenVid-1M) dataset.
-2. Put the dataset in `./dataset` folder.
+2. Put OpenVid-1M dataset in `./dataset` folder.
 ```
 dataset
 └─ OpenVid-1M
