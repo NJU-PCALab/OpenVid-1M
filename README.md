@@ -47,9 +47,9 @@ dataset
 ### Model Weight
 | Model | Data | Pretrained Weight | Steps | Batch Size | URL                                                                                           |
 |------------|--------|--------|-------------|------------|-----------------------------------------------------------------------------------------------|
-| STDiT-16×1024×1024 | OpenVidHQ | STDiT-16×512×512 | 16k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M/tree/main/model_weights) |
-| STDiT-16×512×512 | OpenVid-1M | STDiT-16×256×256 | 20k | 32×8 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M/tree/main/model_weights) |
-| MVDiT-16×512×512 | OpenVid-1M | MVDiT-16×256×256 | 20k | 32×4 | [:link:](https://huggingface.co/datasets/nkp37/OpenVid-1M/tree/main/model_weights) |
+| STDiT-16×1024×1024 | OpenVidHQ | STDiT-16×512×512 | 16k | 32×4 | [:link:](https://huggingface.co/nkp37/OpenVid-1M/tree/main/model_weights) |
+| STDiT-16×512×512 | OpenVid-1M | STDiT-16×256×256 | 20k | 32×8 | [:link:](https://huggingface.co/nkp37/OpenVid-1M/tree/main/model_weights) |
+| MVDiT-16×512×512 | OpenVid-1M | MVDiT-16×256×256 | 20k | 32×4 | [:link:](https://huggingface.co/nkp37/OpenVid-1M/tree/main/model_weights) |
 
 Our model's weight is partially initialized from [PixArt-α](https://github.com/PixArt-alpha/PixArt-alpha).
 
