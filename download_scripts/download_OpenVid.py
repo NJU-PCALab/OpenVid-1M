@@ -56,6 +56,17 @@ def download_files(output_directory):
             os.system(cat_command)
             subprocess.run(unzip_command, check=True)
     
+    data_folder = os.path.join(output_directory, "data", "train")
+    os.makedirs(data_folder, exist_ok=True)
+    data_urls = [
+        "https://huggingface.co/datasets/nkp37/OpenVid-1M/resolve/main/data/train/OpenVid-1M.csv",
+        "https://huggingface.co/datasets/nkp37/OpenVid-1M/resolve/main/data/train/OpenVidHD.csv"
+    ]
+    for data_url in data_urls:
+        data_path = os.path.join(data_folder, os.path.basename(data_url))
+        command = ["wget", "-O", data_path, data_url]
+        subprocess.run(command, check=True)
+
     # delete zip files
     # delete_command = "rm -rf " + zip_folder
     # os.system(delete_command)
@@ -63,6 +74,6 @@ def download_files(output_directory):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some parameters.')
-    parser.add_argument('--output_directory', type=str, help='Path to the dataset directory', default="/path/to/OpenVid-1M/dataset")
+    parser.add_argument('--output_directory', type=str, help='Path to the dataset directory', default="/path/to/dataset")
     args = parser.parse_args()
     download_files(args.output_directory)
