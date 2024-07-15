@@ -87,3 +87,13 @@ Training orders: 16x256x256 $\rightarrow$ 16×512×512 $\rightarrow$ 16×1024×1
 Part of the code is based upon:
 [Open-Sora](https://github.com/hpcaitech/Open-Sora).
 Thanks for their great work!
+
+## Citation
+```bibtex
+@article{nan2024openvid,
+  title={OpenVid-1M: A Large-Scale High-Quality Dataset for Text-to-video Generation},
+  author={Nan, Kepan and Xie, Rui and Zhou, Penghao and Fan, Tiehan and Yang, Zhenheng and Chen, Zhijie and Li, Xiang and Yang, Jian and Tai, Ying},
+  journal={arXiv preprint arXiv:2407.02371},
+  year={2024}
+}
+```
