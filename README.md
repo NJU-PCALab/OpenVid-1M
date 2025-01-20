@@ -17,7 +17,7 @@ To address these issues, we introduce OpenVid-1M, a high-quality dataset with ex
 
 ## ToDo
 - [ ] **2024.2~3** Release OpenVid-V2 dataset.
-- [x] **2024.7.1** Our code, models and OpenVid-1M dataset are released.
+- [x] **2024.7.1** Our code, model and OpenVid-1M dataset are released.
 
 ## Preparation
 ### Environment
