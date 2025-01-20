@@ -16,8 +16,8 @@ Text-to-video (T2V) generation has recently garnered significant attention, larg
 To address these issues, we introduce OpenVid-1M, a high-quality dataset with expressive captions. This open-scenario dataset comprises over 1 million text-video pairs, facilitating T2V generation research. Additionally, we curate 433K 1080p videos from OpenVid-1M to create OpenVidHD-0.4M, advancing high-definition video generation. Furthermore, we propose a novel Multi-modal Video Diffusion Transformer (MVDiT), capable of extracting structural information from visual tokens and semantic information from text tokens. Extensive experiments and ablation studies demonstrate the superiority of OpenVid-1M over previous datasets and the effectiveness of our MVDiT.
 
 ## ToDo
-- [ ] **2024.2~3** Release OpenVid-V2 dataset.
-- [x] **2024.7.1** Our code, model and OpenVid-1M dataset are released.
+- [ ] **2024.02~03** Release OpenVid-V2 dataset.
+- [x] **2024.07.01** Our code, model and OpenVid-1M dataset are released.
 
 ## Preparation
 ### Environment
