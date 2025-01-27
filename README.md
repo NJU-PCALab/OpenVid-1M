@@ -12,12 +12,16 @@
 
 
 ## OpenVid-1M
-Text-to-video (T2V) generation has recently garnered significant attention, largely due to the advanced multi-modality model, Sora. However, current T2V generation in research community still faces two major challenges: 1) The absence of a precise, high-quality open-source dataset. Previous popular video datasets, such as WebVid-10M and Panda-70M, are either of low quality or too large for most research institutions. Collecting precise, high-quality text-video pairs is both challenging and essential for T2V generation. 2) Inadequate utilization of textual information. Recent T2V methods focus on vision transformers, employing a simple cross-attention module for video generation, which falls short of thoroughly extracting semantic information from text prompt.
-To address these issues, we introduce OpenVid-1M, a high-quality dataset with expressive captions. This open-scenario dataset comprises over 1 million text-video pairs, facilitating T2V generation research. Additionally, we curate 433K 1080p videos from OpenVid-1M to create OpenVidHD-0.4M, advancing high-definition video generation. Furthermore, we propose a novel Multi-modal Video Diffusion Transformer (MVDiT), capable of extracting structural information from visual tokens and semantic information from text tokens. Extensive experiments and ablation studies demonstrate the superiority of OpenVid-1M over previous datasets and the effectiveness of our MVDiT.
+OpenVid-1M is a high-quality text-to-video dataset designed for research institutions to enhance **video quality, featuring high aesthetics, clarity, and resolution**. It can be used for direct training or as a quality tuning complement to other video datasets. It can also be used in other video generation task (video super-resolution, frame interpolation, etc)
 
-## ToDo
-- [ ] **2025.02~03:** Release OpenVid-V2 dataset.
-- [x] **2024.07.01:** Our code, model and OpenVid-1M dataset are released.
+We carefully curate 1 million high-quality video clips with expressive captions to advance text-to-video research, in which **0.4 million videos are in 1080P resolution (termed OpenVidHD-0.4M)**.
+
+OpenVid-1M is cited, discussed or used in several recent works, including video diffusion models [**MarDini**](https://arxiv.org/pdf/2410.20280), [**Allegro**](https://github.com/rhymes-ai/Allegro), [**T2V-Turbo-V2**](https://t2v-turbo-v2.github.io/), [**Pyramid Flow**](https://pyramid-flow.github.io/), [**SnapGen-V**](https://arxiv.org/pdf/2412.10494); long video generation model with AR model [**ARLON**](https://arxiv.org/pdf/2410.20502); visual understanding and generation model [**VILA-U**](https://arxiv.org/pdf/2409.04429); 3D/4D generation models [**GenXD**](https://arxiv.org/pdf/2411.02319), [**DimentionX**](https://arxiv.org/pdf/2411.04928?); video VAE model [**IV-VAE**](https://arxiv.org/pdf/2411.06449); Frame interpolation model [**Framer**](https://openreview.net/pdf?id=Lp40Z40N07) and large multimodal model [**InternVL 2.5**](https://arxiv.org/pdf/2412.05271).
+
+## News
+- **2025.01.23:** OpenVid-1M is accepted by ICLR 2025!
+- **2024.12.01** OpenVid-1M dataset was downloaded over **79,000** times on Huggingface last month, placing it in the **top 1%** of all video datasets (as of Nov. 2024)!
+- **2024.07.01:** Our paper, code, model and OpenVid-1M dataset are released!
 
 ## Preparation
 ### Environment
