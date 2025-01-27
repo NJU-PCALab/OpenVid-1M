@@ -18,10 +18,10 @@ We carefully curate 1 million high-quality video clips with expressive captions 
 
 OpenVid-1M is cited, discussed or used in several recent works, including video diffusion models [**MarDini**](https://arxiv.org/pdf/2410.20280), [**Allegro**](https://github.com/rhymes-ai/Allegro), [**T2V-Turbo-V2**](https://t2v-turbo-v2.github.io/), [**Pyramid Flow**](https://pyramid-flow.github.io/), [**SnapGen-V**](https://arxiv.org/pdf/2412.10494); long video generation model with AR model [**ARLON**](https://arxiv.org/pdf/2410.20502); visual understanding and generation model [**VILA-U**](https://arxiv.org/pdf/2409.04429); 3D/4D generation models [**GenXD**](https://arxiv.org/pdf/2411.02319), [**DimentionX**](https://arxiv.org/pdf/2411.04928?); video VAE model [**IV-VAE**](https://arxiv.org/pdf/2411.06449); Frame interpolation model [**Framer**](https://openreview.net/pdf?id=Lp40Z40N07) and large multimodal model [**InternVL 2.5**](https://arxiv.org/pdf/2412.05271).
 
-## News
-- **2025.01.23:** OpenVid-1M is accepted by ICLR 2025!
-- **2024.12.01** OpenVid-1M dataset was downloaded over **79,000** times on Huggingface last month, placing it in the **top 1%** of all video datasets (as of Nov. 2024)!
-- **2024.07.01:** Our paper, code, model and OpenVid-1M dataset are released!
+## News 🚀🚀🚀
+- **[2025.01.23]** 🏆 OpenVid-1M is accepted by ICLR 2025!
+- **[2024.12.01]** 🚀 OpenVid-1M dataset was downloaded over **79,000** times on Huggingface last month, placing it in the **top 1%** of all video datasets (as of Nov. 2024)!
+- **[2024.07.01]** 🔥 Our paper, code, model and OpenVid-1M dataset are released!
 
 ## Preparation
 ### Environment
