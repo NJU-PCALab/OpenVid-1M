@@ -13,7 +13,9 @@
 
 ## OpenVid-1M
 OpenVid-1M is a high-quality text-to-video dataset designed for research institutions to enhance **video quality, featuring high aesthetics, clarity, and resolution**. It can be used for direct training or as a quality tuning complement to other video datasets. It can also be used in other video generation task (video super-resolution, frame interpolation, etc)
+
 We carefully curate 1 million high-quality video clips with expressive captions to advance text-to-video research, in which **0.4 million videos are in 1080P resolution (termed OpenVidHD-0.4M)**.
+
 OpenVid-1M is cited, discussed or used in several recent works, including video diffusion models [**MarDini**](https://arxiv.org/pdf/2410.20280), [**Allegro**](https://github.com/rhymes-ai/Allegro), [**T2V-Turbo-V2**](https://t2v-turbo-v2.github.io/), [**Pyramid Flow**](https://pyramid-flow.github.io/), [**SnapGen-V**](https://arxiv.org/pdf/2412.10494); long video generation model with AR model [**ARLON**](https://arxiv.org/pdf/2410.20502); visual understanding and generation model [**VILA-U**](https://arxiv.org/pdf/2409.04429); 3D/4D generation models [**GenXD**](https://arxiv.org/pdf/2411.02319), [**DimentionX**](https://arxiv.org/pdf/2411.04928?); video VAE model [**IV-VAE**](https://arxiv.org/pdf/2411.06449); Frame interpolation model [**Framer**](https://openreview.net/pdf?id=Lp40Z40N07) and large multimodal model [**InternVL 2.5**](https://arxiv.org/pdf/2412.05271).
 
 ## News 🚀🚀🚀
